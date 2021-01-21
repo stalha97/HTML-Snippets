@@ -1,0 +1,92 @@
+:root{
+	--goldenColor: #bf9130;
+}
+
+@font-face {
+  font-family: evogria;
+  src: url(../fonts/evogria.otf);
+}
+
+footer *{
+	font-family: evogria;
+}
+footer{
+	background-color: black;
+}
+
+footer #subscribe{
+	padding:70px;
+	display:inline-block;
+	text-align:center;
+}
+
+footer #gethelp{
+	padding:70px;
+	display:inline-block;
+	vertical-align:top;
+	margin-left:30px;
+	line-height:1.6;
+}
+
+footer a {
+	color:grey;
+	text-decoration: none;
+	font-size:14px;
+}
+footer a:hover{
+	color:white;
+}
+footer a:active{
+	color:#bf9130;
+}
+
+footer #subscribe input[type='email']{
+	color:grey;
+	padding:10px 30px;
+}
+footer #subscribe input[type='submit']{
+	background-color:#bf9130;
+	color:white;
+	padding:12px 32px;
+	border:none;
+	border-radius:3px;
+	margin-left:5px
+}
+
+footer #subscribe input[type='submit']:hover{
+	cursor:pointer;
+}
+
+footer #gethelp a{
+	display:block
+}
+
+
+@media only screen and (max-width: 900px) {
+	footer #subscribe {
+		padding-bottom: 10px;
+		display:block;
+	}
+	footer #gethelp {
+		padding-top: 10px;
+		display:block;
+	}
+	/*
+	footer #gethelp p{
+		width:150px;
+		margin: auto;
+	}*/		
+	footer #gethelp a{
+		display:inline-block;
+	}
+	footer #gethelp a::after{
+		content:"";
+		margin-left:15px;
+	}
+
+	footer #subscribe input[type='submit']{
+		margin-left:0;
+		margin-top: 10px;
+	}
+
+}

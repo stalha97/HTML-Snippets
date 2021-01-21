@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mini Audio Player</title>
+
+	<style type="text/css">
+	body{
+		background-image:url('images/background-1.jpg');
+	}
+	.active{
+		border: 5px solid red;
+	}
+	button{
+		background-color:orange;
+		color:white;
+		font-size:25px;
+	}
+	</style>
+
+
+	<script type="text/javascript">
+		function switchChannel(b)
+		{
+			if( b=="b1")
+			{
+				document.getElementById('b1').classList.add("active") 
+				document.getElementById('b2').classList.remove("active")
+				document.body.style.backgroundImage = "url('images/background-1.jpg')" ;
+			}
+
+			if( b=="b2")
+			{
+				document.getElementById('b2').classList.add("active") 
+				document.getElementById('b1').classList.remove("active")
+				document.body.style.backgroundImage = "url('images/background-2.jpg')" ;
+			}
+		}
+	</script>
+</head>
+
+
+
+<body>
+	<center>
+		<div id="channelSelector">
+			<button id="b1" onclick="switchChannel('b1')"  class="active"> CH 1 </button>
+			<button id="b2" onclick="switchChannel('b2')"> CH 2 </button>
+		</div>
+
+		<div id="audioPlayer"  style="margin:10px 10px">
+			<img src="images/player.jpg" width="220px" height="255px" style="border:1px solid black" />
+		</div>
+
+		<div id="advertImage">
+			<img src="images/advert.jpg" width="220px" height="auto" />
+		</div>
+
+	</center>
+</body>
+</html>

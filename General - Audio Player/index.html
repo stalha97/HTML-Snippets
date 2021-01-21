@@ -1,0 +1,29 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title>Audio Player</title>
+
+	<script type="text/javascript">
+		var childwindow= null;
+
+		function opennewwindow()
+		{
+			childwindow= window.open("audio-player.html","childwindow","width=250,height=485,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=0");
+		}
+
+		function closenewwindow()
+		{
+			if(childwindow && !childwindow.closed)
+			{
+				childwindow.close();
+			}
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1> <a href="javascript:opennewwindow()">View Audio Player </a> </h1>
+</center>
+	
+</body>
+</html>
