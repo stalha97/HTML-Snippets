@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML Snippets Home Page</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+	<style>
+	a{
+		text-decoration: none;
+	}
+
+	</style>
+</head>
+<body>
+
+	<div id="content" class="container">
+		<div class="row text-center py-2">
+			<div class="col-1"></div>
+			<div class="col-5">
+				<h1>HTML Snippets</h1>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="./snippets-info.js"></script>
+	<script type="text/javascript">
+		var params = [
+		    'height='+screen.height,
+		    'width='+screen.width,
+		    'fullscreen=yes' // only works in IE, but here for completeness
+		].join(',');
+
+		let i=1;
+		
+		snippets.forEach( (snippet)=>{
+			let content = document.getElementById("content");
+			content.innerHTML += 
+			`
+			<div class="row py-2">
+				<div class="col-1"> 
+					 <button class="btn btn-link btn-md text-decoration-none text-dark fw-bold" disabled>${i}</button> 
+				</div>
+				<div class="col-5">
+					<a href="./${snippet.name}/${snippet.index}" class="btn btn-dark btn-md d-block" target="popup" onclick="var popup= window.open('./${snippet.name}/${snippet.index}','${i}.${snippet.name}', '${params}'); popup.moveTo(0,0);"> ${snippet.name} </a>
+				</div>
+			</div>
+			`
+			i++;
+		})
+	</script>
+
+</body>
+</html>
