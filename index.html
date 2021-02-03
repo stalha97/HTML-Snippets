@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>HTML Snippets Home Page</title>
+	<title>HTML Snippets</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,7 +13,6 @@
 	a{
 		text-decoration: none;
 	}
-
 	</style>
 </head>
 <body>
@@ -37,22 +36,61 @@
 		].join(',');
 
 		let i=1;
-		
-		snippets.forEach( (snippet)=>{
-			let content = document.getElementById("content");
-			content.innerHTML += 
-			`
-			<div class="row py-2">
-				<div class="col-1"> 
-					 <button class="btn btn-link btn-md text-decoration-none text-dark fw-bold" disabled>${i}</button> 
-				</div>
-				<div class="col-5">
-					<a href="./${snippet.name}/${snippet.index}" class="btn btn-dark btn-md d-block" target="popup" onclick="var popup= window.open('./${snippet.name}/${snippet.index}','${i}.${snippet.name}', '${params}'); popup.moveTo(0,0);"> ${snippet.name} </a>
-				</div>
-			</div>
-			`
-			i++;
+
+		let categories = {}
+		snippets.forEach((snippet)=>{
+			if(categories[snippet.category])
+			{
+				categories[snippet.category].push(snippet)
+			}
+			else
+			{
+				categories[snippet.category] = [snippet]
+			}
 		})
+		console.log(categories)
+		
+
+		for(let key in categories){
+			let htmlSnippets = categories[key]
+
+			let content = document.getElementById("content");
+			// content.innerHTML += 
+			// `	
+			// 	<div class="row text-center py-2 mt-2">
+			// 		<div class="col-1"></div>
+			// 		<div class="col-5">
+			// 			<h3>${key}</h3>
+			// 		</div>
+			// 	</div>
+			// `
+
+			htmlSnippets.forEach( (snippet)=>{
+				let github = "https://github.com/stalha97/HTML-Snippets/tree/main/" + snippet.name 
+				content.innerHTML += 
+				`
+					<div class="row py-2">
+						<div class="col-1"> 
+							 <button class="btn btn-link btn-md text-decoration-none text-dark fw-bold" disabled>${i}</button> 
+						</div>
+						
+						<div class="col-5">
+							<a href="./${snippet.name}/${snippet.index}" class="btn btn-dark btn-md d-block" target="popup" onclick="var popup= window.open('./${snippet.name}/${snippet.index}','${i}.${snippet.name}', '${params}'); popup.moveTo(0,0);"> ${snippet.name.split("-")[1]} </a>
+						</div>
+
+
+						<div class="col-2">
+							<a href="#" class="btn btn-outline-dark btn-md d-block" > ${key} </a>
+						</div>
+
+						<div class="col-2">
+							<a href="${github}" class="btn btn-outline-dark btn-md d-block" target="_blank"> Github </a>
+						</div>
+					</div>
+				`
+				i++;
+			})
+		}
 	</script>
 
 </body>
