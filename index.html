@@ -75,7 +75,7 @@
 						</div>
 						
 						<div class="col-5">
-							<a href="./${snippet.name}/${snippet.index}" class="btn btn-dark btn-md d-block" target="popup" onclick="var popup= window.open('./${snippet.name}/${snippet.index}','${i}.${snippet.name}', '${params}'); popup.moveTo(0,0);"> ${snippet.name.split("-")[1]} </a>
+							<a href="./${snippet.name}/${snippet.index}" class="btn btn-dark btn-md d-block" target="_blank" > ${snippet.name.split("-")[1]} </a>
 						</div>
 
 
@@ -91,6 +91,8 @@
 				i++;
 			})
 		}
+
+		/*onclick="var popup= window.open('./${snippet.name}/${snippet.index}','${i}.${snippet.name}', '${params}'); popup.moveTo(0,0);"*/
 	</script>
 
 </body>

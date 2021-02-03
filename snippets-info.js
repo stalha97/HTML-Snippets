@@ -5,7 +5,7 @@ let snippets = [
 		category: "Card"
 	},
 	{
-		name: "Footer - Nike Style",
+		name: "Footer - NIKE Style",
 		index: "footer.html",
 		category: "Footer"
 	},
